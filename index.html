@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Swedish Time Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #swedish-time {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #007acc;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is my free GitHub website.</p>
-  <h2>Current Time in Sweden:</h2>
-  <div id="swedish-time" style="font-size: 1.5em;"></div>
+
+  <h1>Welcome to My Website</h1>
+  <p>This site shows the current time in Sweden:</p>
+  
+  <div id="swedish-time">Loading time...</div>
+
   <script>
-  function updateSwedishTime() {
-    const options = {
-     timeZone: 'Europe/Stockholm',
-     hour: '2-digit',
-     minute: '2-digit',
-     second: '2-digit',
-     weekday: 'long',
-     year: 'numeric',
-     month: 'long',
-     day: 'numeric'
-    };
-    const formatter = new Intl.DateTimeFormat([], options);
-    document.getElementById('swedish-time').textContent = formatter.format(new Date());
-  }
+    function updateSwedishTime() {
+      const options = {
+        timeZone: 'Europe/Stockholm',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      const formatter = new Intl.DateTimeFormat('en-GB', options);
+      document.getElementById('swedish-time').textContent = formatter.format(new Date());
+    }
 
-  setInterval(updateSwedishTime, 1000); // update every second
-  updateSwedishTime(); // initial call
+    setInterval(updateSwedishTime, 1000);
+    updateSwedishTime();
   </script>
-</body>
 
+</body>
 </html>
