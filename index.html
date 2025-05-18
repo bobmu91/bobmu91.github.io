@@ -7,4 +7,26 @@
   <h1>Hello, world!</h1>
   <p>This is my free GitHub website.</p>
 </body>
+  <h2>Current Time in Sweden:</h2>
+  <div id="swedish-time" style="font-size: 1.5em;"></div>
+  <script>
+  function updateSwedishTime() {
+    const options = {
+     timeZone: 'Europe/Stockholm',
+     hour: '2-digit',
+     minute: '2-digit',
+     second: '2-digit',
+     weekday: 'long',
+     year: 'numeric',
+     month: 'long',
+     day: 'numeric'
+    };
+    const formatter = new Intl.DateTimeFormat([], options);
+    document.getElementById('swedish-time').textContent = formatter.format(new Date());
+  }
+
+  setInterval(updateSwedishTime, 1000); // update every second
+  updateSwedishTime(); // initial call
+  </script>
+
 </html>
